@@ -15,6 +15,10 @@ class DatabaseSeeder extends Seeder
             RolePermissionSeeder::class,
             ProgramSeeder::class,
             AdminUserSeeder::class,
+            // Document review system seeders
+            PeriodSeeder::class,
+            DocumentTypeSeeder::class,
+            SubjectSeeder::class,
         ]);
     }
 }

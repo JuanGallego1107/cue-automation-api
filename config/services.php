@@ -35,4 +35,35 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Azure Document Intelligence
+    |--------------------------------------------------------------------------
+    */
+    'azure' => [
+        'endpoint' => env('AZURE_DOC_INTELLIGENCE_ENDPOINT'),
+        'key'      => env('AZURE_DOC_INTELLIGENCE_KEY'),
+        'model'    => env('AZURE_DOC_INTELLIGENCE_MODEL', 'prebuilt-document'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Google AI Studio
+    |--------------------------------------------------------------------------
+    */
+    'google_ai_studio' => [
+        'api_key' => env('GOOGLE_AI_STUDIO_API_KEY'),
+        'model'   => env('GOOGLE_AI_STUDIO_MODEL', 'gemini-3.5-flash'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Google Drive
+    |--------------------------------------------------------------------------
+    */
+    'google_drive' => [
+        'credentials_path' => env('GOOGLE_DRIVE_CREDENTIALS_PATH', 'storage/app/google-credentials.json'),
+        'root_folder_id'   => env('GOOGLE_DRIVE_ROOT_FOLDER_ID'),
+    ],
+
 ];

@@ -6,6 +6,7 @@ namespace App\Models;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -81,5 +82,29 @@ class User extends Authenticatable
 
         // Return true if role exists and its loaded/queried permissions collection contains the given permission name
         return $this->role && $this->role->permissions->contains('name', $permissionName);
+    }
+
+    /**
+     * Get the document submissions created by this user (coordinator).
+     */
+    public function submissions(): HasMany
+    {
+        return $this->hasMany(DocumentSubmission::class);
+    }
+
+    /**
+     * Get audit log entries associated with this user.
+     */
+    public function auditLogs(): HasMany
+    {
+        return $this->hasMany(AuditLog::class);
+    }
+
+    /**
+     * Get signatures made by this user.
+     */
+    public function signatures(): HasMany
+    {
+        return $this->hasMany(Signature::class);
     }
 }
